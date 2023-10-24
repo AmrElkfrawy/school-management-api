@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const validator = require("validator");
 
@@ -47,12 +47,10 @@ const userSchema = new mongoose.Schema({
 const studentSchema = new mongoose.Schema({
   classroom: {
     type: String,
-    required: [true, "Provide the classroom ID"],
   },
   school: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "School",
-    required: [true, "Provide the school ID"],
   },
 
   userId: {

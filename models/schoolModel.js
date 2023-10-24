@@ -3,12 +3,13 @@ const mongoose = require("mongoose");
 const schoolSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: [true, "Provide school name"],
     trim: true,
+    unique: [true, "Name must be unique"],
   },
   location: {
     type: String,
-    required: true,
+    required: [true, "Prove school location"],
     trim: true,
   },
   description: {

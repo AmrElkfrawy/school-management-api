@@ -4,6 +4,8 @@ const cors = require("cors");
 const app = express();
 
 // routers
+const schoolRouter = require("../../routes/schoolRoutes");
+const classroomRouter = require("../../routes/classroomRoutes");
 const studentRouter = require("../../routes/studentsRoutes");
 
 module.exports = class UserServer {
@@ -24,6 +26,8 @@ module.exports = class UserServer {
     app.use(express.urlencoded({ extended: true }));
     app.use("/static", express.static("public"));
 
+    app.use("/api/v1/schools", schoolRouter);
+    app.use("/api/v1/classrooms", classroomRouter);
     app.use("/api/v1/students", studentRouter);
 
     /** an error handler */
